@@ -4,10 +4,13 @@ class UsersController < ApplicationController
 
     def create 
         user = User.new(user_params)
+        options = {
+            include: [:category, :message_board]
+        }
 
         if user.valid?
             user.save 
-            render json: {user: UserSerializer.new(user), token: encode_token({user_id: user.id})}
+            render json: {user: UserSerializer.new(user, options), token: encode_token({user_id: user.id})}
         else 
             render json: {error: "Failed to create a user"}
         end 
