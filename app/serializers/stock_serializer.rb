@@ -1,4 +1,4 @@
-class StockSerializer < ActiveModel::Serializer
+class StockSerializer
   include FastJsonapi::ObjectSerializer
   attributes :id
 end

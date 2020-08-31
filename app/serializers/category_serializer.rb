@@ -1,4 +1,4 @@
-class CategorySerializer < ActiveModel::Serializer
+class CategorySerializer 
   include FastJsonapi::ObjectSerializer
   attributes :id, :name, :description, :amount
 

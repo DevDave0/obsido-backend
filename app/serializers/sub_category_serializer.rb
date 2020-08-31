@@ -1,4 +1,4 @@
-class SubCategorySerializer < ActiveModel::Serializer
+class SubCategorySerializer 
   include FastJsonapi::ObjectSerializer
   attributes :id
 end
