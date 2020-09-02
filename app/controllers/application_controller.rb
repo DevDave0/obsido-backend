@@ -6,6 +6,10 @@ class ApplicationController < ActionController::API
         JWT.encode(payload, 'flatiron', 'HS256')
     end 
 
+    def decode_token(payload)
+        JWT.decode(payload, 'flatiron', 'HS256')
+    end 
+
 
     def logged_in? 
         headers = request.headers["Authorization"]
