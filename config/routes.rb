@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :sub_categories
   resources :cryptos
   resources :stocks
-  resources :user_categories
   resources :categories
   resources :users
 
