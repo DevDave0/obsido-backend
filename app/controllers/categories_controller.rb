@@ -15,10 +15,11 @@ class CategoriesController < ApplicationController
             user_id: decode_token(params[:user_id])[0]['user_id']
             
         )
+        options = {include: [:user]}
 
         if category.valid?
             category.save 
-            render json: {category: CategorySerializer.new(category)}
+            render json: {category: CategorySerializer.new(category, options)}
         else 
             render json: {'error': 'There was an error. Please try again'}
         end 
