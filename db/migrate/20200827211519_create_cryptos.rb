@@ -4,7 +4,6 @@ class CreateCryptos < ActiveRecord::Migration[6.0]
       t.string :name 
       t.string :ticker 
       t.integer :price 
-      t.integer :max_supply 
       t.string :description 
       t.integer :amount 
       t.integer :category_id
