@@ -8,7 +8,10 @@ class UsersController < ApplicationController
 
         if user.valid?
             user.save 
-            render json: {user: UserSerializer.new(user), token: encode_token({user_id: user.id})}
+            options = {
+                include: [:categories]
+              }
+            render json: {user: UserSerializer.new(user, options), token: encode_token({user_id: user.id})}
         else 
             render json: {error: "Failed to create a user"}
         end 
@@ -16,8 +19,11 @@ class UsersController < ApplicationController
     end 
 
     def index 
-        @users = User.all 
-        render json: @users
+        users = User.all 
+        options = {
+            include: [:categories]
+          }
+        render json: UserSerializer.new(users, options)
     end 
 
     private 

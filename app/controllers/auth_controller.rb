@@ -5,8 +5,12 @@ class AuthController < ApplicationController
     def create 
         user = User.find_by(name: params[:name])
 
+        options = {
+            include: [:categories]
+          }
+
         if user && user.authenticate(params[:password])
-            render json: {user: UserSerializer.new(user), token: encode_token({user_id: user.id})}
+            render json: {user: UserSerializer.new(user, options), token: encode_token({user_id: user.id})}
         else
             render json: {error: "Invalid username or password"}  
         end 

@@ -3,8 +3,11 @@ class CategoriesController < ApplicationController
     skip_before_action :logged_in?, only: [:create, :index]
 
     def index 
-        @categories = Category.all 
-        render json: @categories
+        categories = Category.all 
+        options = {
+            include: [:sub_categories, :'sub_categories.name']
+          }
+        render json: CategorySerializer.new(categories, options)
     end 
 
     def create 
