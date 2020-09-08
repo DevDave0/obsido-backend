@@ -1,6 +1,6 @@
 class StockSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id
+  attributes :id, :name, :ticker, :price, :description, :amount
 
 
   belongs_to :category
