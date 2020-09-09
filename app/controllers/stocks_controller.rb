@@ -5,14 +5,13 @@ class StocksController < ApplicationController
 
     def index 
         stocks = Stock.all 
-        render json: StockSerializer.new
+        render json: stocks
     end 
 
     def create 
         stock = Stock.create(
             name: params[:name],
             ticker: params[:ticker],
-            price: params[:price],
             description: params[:description],
             amount: params[:amount],
             category_id: params[:category_id]

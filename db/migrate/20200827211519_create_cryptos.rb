@@ -3,9 +3,8 @@ class CreateCryptos < ActiveRecord::Migration[6.0]
     create_table :cryptos do |t|
       t.string :name 
       t.string :ticker 
-      t.integer :price 
       t.string :description 
-      t.integer :amount 
+      t.float :amount 
       t.integer :category_id
 
       t.timestamps

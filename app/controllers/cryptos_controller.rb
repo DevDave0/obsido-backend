@@ -4,14 +4,13 @@ class CryptosController < ApplicationController
 
     def index 
         cryptos = Crypto.all 
-        render json: CryptoSerializer.new
+        render json: cryptos
     end 
 
     def create 
         crypto = Crypto.create(
             name: params[:name],
             ticker: params[:ticker],
-            price: params[:price],
             description: params[:description],
             amount: params[:amount],
             category_id: params[:category_id]

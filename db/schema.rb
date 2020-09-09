@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_211636) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "amount"
+    t.float "amount"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -36,9 +36,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_211636) do
   create_table "cryptos", force: :cascade do |t|
     t.string "name"
     t.string "ticker"
-    t.integer "price"
     t.string "description"
-    t.integer "amount"
+    t.float "amount"
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -53,10 +52,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_211636) do
   create_table "stocks", force: :cascade do |t|
     t.string "name"
     t.string "ticker"
-    t.string "type"
-    t.integer "price"
     t.string "description"
-    t.integer "amount"
+    t.float "amount"
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -65,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_211636) do
   create_table "sub_categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "amount"
+    t.float "amount"
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
