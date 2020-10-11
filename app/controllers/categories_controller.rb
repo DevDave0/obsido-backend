@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
 
-    skip_before_action :logged_in?, only: [:create, :index]
+    skip_before_action :logged_in?, only: [:create, :index, :destroy]
 
     def index 
         categories = Category.all 
         options = {
             include: [:sub_categories, :'sub_categories.name']
-          }
+            }
         render json: CategorySerializer.new(categories, options)
     end 
 
@@ -27,6 +27,12 @@ class CategoriesController < ApplicationController
             render json: {'error': 'There was an error. Please try again'}
         end 
 
+    end 
+
+    def destroy 
+        @category = Category.find(params[:id])
+        @category.destroy 
+        render json: @category
     end 
 
     private 
